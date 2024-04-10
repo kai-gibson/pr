@@ -2,6 +2,7 @@ import sqlalchemy as db
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy.orm import Session
+from datetime import datetime
 
 class Base(DeclarativeBase):
     pass
@@ -9,8 +10,8 @@ class Base(DeclarativeBase):
 class TrainingLog(Base):
     __tablename__ = "training_log"
     id: Mapped[int] = mapped_column(primary_key=True)
-    bitmask: Mapped[int] = mapped_column()
-    timestamp :Mapped[str] = mapped_column(String(20))
+    bitmask: Mapped[int] = mapped_column(nullable=True)
+    timestamp :Mapped[datetime] = mapped_column(String(20))
     excercise_id :Mapped[int] = mapped_column(ForeignKey("excercises.id"))
     reps :Mapped[int] = mapped_column()
     weight :Mapped[float] = mapped_column()
@@ -21,8 +22,8 @@ class TrainingLog(Base):
 class Excercises(Base):
     __tablename__ = "excercises"
     id: Mapped[int] = mapped_column(primary_key=True)
-    bitmask: Mapped[int] = mapped_column()
-    name: Mapped[String] = mapped_column(String(40))
+    bitmask: Mapped[int] = mapped_column(nullable=True)
+    name: Mapped[str] = mapped_column(String(40))
 
     def __repr__(self) -> str:
         return f"""TrainingLog(id={self.id!r}, bitmask={self.bitmask!r}, name={self.name!r}"""
@@ -55,5 +56,3 @@ session = Session(engine)
 #                        db.Column('bitmask', db.Integer(), primary_key=True),
 #                        db.Column('name', db.String()),
 #                        ) 
-
-

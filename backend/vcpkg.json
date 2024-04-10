@@ -1,8 +1,8 @@
 {
   "dependencies": [
+    "boost-beast",
     "cereal",
     "fmt",
-    "tinyorm",
-    "boost"
+    "tinyorm"
   ]
 }

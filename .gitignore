@@ -3,3 +3,10 @@ py_backend/.venv/include/site/python3.11/greenlet
 py_backend/.venv/lib/python3.11/site-packages
 py_backend/.venv/lib64
 py_backend/src/__pycache__
+backend/.cache/clangd/index
+backend/CMakeFiles
+backend/build
+backend/vcpkg_installed
+backend/CMakeCache.txt
+py_backend/__pycache__
+py_backend/src/excercise_database.sqlite
